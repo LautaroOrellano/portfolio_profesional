@@ -57,6 +57,7 @@ header {
   transition: background 0.25s, box-shadow 0.25s;
 }
 
+/* Navbar general */
 .navbar {
   max-width: 1100px;
   margin: 0 auto;
@@ -64,29 +65,59 @@ header {
   justify-content: space-between;
   align-items: center;
   padding: 1rem 2rem;
-  gap: 1rem;
+  position: relative;
 }
 
 .logo {
   font-weight: 700;
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   color: var(--text-color);
 }
 
+/* Menú por defecto (desktop) */
 .nav-links {
   list-style: none;
   display: flex;
-  gap: 1.25rem;
   align-items: center;
+  gap: 1.25rem;
 }
+
 .nav-links a {
   text-decoration: none;
   color: var(--text-color);
   font-weight: 500;
   transition: color 0.2s;
 }
+
 .nav-links a:hover {
   color: var(--primary-color);
+}
+
+/* Botón tema desktop */
+#theme-toggle-desktop {
+  display: inline-block;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 1.05rem;
+  margin-left: 1rem;
+}
+
+/* Botón hamburguesa móvil */
+#menu-toggle {
+  display: none;
+  background: transparent;
+  border: none;
+  font-size: 1.8rem;
+  cursor: pointer;
+}
+
+/* Estilos del logo y botón dentro del menú */
+.nav-logo {
+  margin-right: auto; /* empuja los links hacia la derecha */
+}
+.theme-btn-container {
+  margin-left: auto;
 }
 
 #theme-toggle {
@@ -196,8 +227,8 @@ body.dark-theme #theme-toggle img {
 }
 
 .project-info {
-  order: 1; /* Texto a la izquierda */
-  flex: 1; /* Ocupa el resto del espacio */
+  order: 1; 
+  flex: 1; 
   padding: 1.5rem;
   display: flex;
   flex-direction: column;
@@ -239,6 +270,7 @@ body.dark-theme #theme-toggle img {
   padding: 6rem 2rem 6rem;
   max-width: 1100px;
   margin: 0 auto;
+  margin-top: 5rem;
 }
 .section-about h2 {
   text-align: center;
@@ -354,7 +386,7 @@ body.dark-theme .about-socials img {
   flex-direction: column;
   align-items: center;
   gap: 0.75rem;
-  margin-top: 1.5rem;
+  margin-top: 7rem;
   text-align: center;
 }
 
@@ -370,8 +402,8 @@ body.dark-theme .about-socials img {
   text-decoration: none;
   padding: 0.5rem 1rem;
   border-radius: 6px;
-  background-color: #25d366; /* color oficial WhatsApp */
-  color: #fff;
+  background-color: #25d366; 
+  color: #000000;
   font-weight: bold;
   transition: transform 0.2s ease, background-color 0.2s ease;
 }
@@ -405,29 +437,303 @@ body.dark-theme .contact-alternative a.btn-wapp {
   scroll-margin-top: 84px;
 }
 
-/* Responsive */
-@media (max-width: 768px) {
+/* Botón flotante WhatsApp */
+#whatsapp-float {
+  position: fixed;
+  bottom: 20px;
+  right: 60px;
+  width: 60px;
+  height: 60px;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #25d366;
+  border-radius: 50%;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+  transition: transform 0.2s ease, background-color 0.2s ease, opacity 0.3s ease;
+  opacity: 0; /* inicialmente oculto */
+  pointer-events: none; /* mientras está oculto no clickeable */
+}
+
+#whatsapp-float img {
+  width: 32px;
+  height: 32px;
+}
+
+#whatsapp-float:hover {
+  transform: scale(1.1);
+  background-color: #1ebe57;
+  cursor: pointer;
+}
+
+/* Tooltip personalizado */
+#whatsapp-float::after {
+  content: attr(title);
+  position: absolute;
+  bottom: 70px;
+  right: 50%;
+  transform: translateX(50%);
+  background: var(--card-bg);
+  color: var(--text-color);
+  padding: 5px 10px;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+}
+
+#whatsapp-float:hover::after {
+  opacity: 1;
+}
+
+/* Dark-mode */
+body.dark-theme #whatsapp-float {
+  filter: brightness(1.1);
+}
+
+/* ------------------ MEDIA QUERIES RESPONSIVE ------------------ */
+
+/* ---------- CELULARES (hasta 600px) ---------- */
+@media (max-width: 600px) {
+  /* Hero */
+  .section-hero h1 {
+    font-size: 2rem;
+  }
+  .section-hero p {
+    font-size: 0.95rem;
+  }
+  .btn-primary {
+    padding: 0.55rem 1rem;
+    font-size: 0.95rem;
+  }
+
+  .navbar {
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start; /* iniciamos todo a la izquierda */
+    gap: 1rem;
+    padding: 1rem 1.5rem;
+  }
+
+  .nav-logo {
+    flex-shrink: 0;
+  }
+
+  /* Contenedor del botón tema */
+  .theme-btn-container {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  /* Botón hamburguesa: empuja al extremo derecho */
+  #menu-toggle {
+    margin-left: auto;
+    display: block;
+    font-size: 1.8rem;
+    cursor: pointer;
+  }
+
+  /* Menú desplegable */
+  .nav-links {
+    position: absolute;
+    top: 60px;
+    right: 1rem;
+    background: var(--card-bg);
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem;
+    border-radius: 6px;
+    box-shadow: 0 2px 10px var(--muted-shadow);
+    display: none;
+    width: 200px;
+    z-index: 999;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+  /* Proyectos */
+  .projects-grid {
+    flex-direction: column;
+  }
+  .project-card {
+    flex-direction: column;
+  }
+  .project-img {
+    order: 1;
+    width: 100%;
+    min-height: 180px;
+  }
+  .project-info {
+    order: 2;
+    padding: 1rem;
+  }
+
+  /* Sobre mí */
   .about-content {
     flex-direction: column;
+    gap: 1.5rem;
+  }
+  .about-img {
+    flex: 0 0 180px;
   }
   .about-img img {
     width: 180px;
     height: 180px;
   }
-  .navbar {
-    padding: 0.75rem 1rem;
+
+  /* Contacto */
+  .section-contact {
+    padding: 4rem 1.5rem 2rem;
   }
-  .section-hero h1 {
-    font-size: 1.9rem;
+  .contact-alternative {
+    margin-top: 3rem;
   }
 }
 
-/* --- pequeños ajustes de accesibilidad --- */
-a {
-  -webkit-tap-highlight-color: transparent;
+/* ---------- TABLETS (601px – 1024px) ---------- */
+@media (min-width: 601px) and (max-width: 1024px) {
+  /* Hero */
+  .section-hero h1 {
+    font-size: 2.25rem;
+  }
+  .section-hero p {
+    font-size: 1rem;
+  }
+
+  /* Navbar */
+  .navbar {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .nav-links {
+    flex-direction: row;
+    gap: 1rem;
+  }
+
+  .nav-links {
+    display: none; /* se ocultan */
+    flex-direction: column;
+    gap: 1rem;
+    position: absolute;
+    top: 60px;
+    right: 1rem;
+    background: var(--card-bg);
+    padding: 1rem;
+    border-radius: 6px;
+    box-shadow: 0 2px 10px var(--muted-shadow);
+  }
+  #menu-toggle {
+    display: block; /* aparece botón hamburguesa */
+  }
+  .nav-links.active {
+    display: flex; /* muestra menú al hacer click */
+  }
+
+  /* Proyectos */
+  .projects-grid {
+    flex-direction: column;
+  }
+  .project-card {
+    flex-direction: row;
+  }
+  .project-img {
+    flex: 0 0 45%;
+    min-height: 220px;
+  }
+  .project-info {
+    flex: 1;
+    padding: 1.25rem;
+  }
+
+  /* Sobre mí */
+  .about-content {
+    flex-direction: row;
+    gap: 2rem;
+  }
+  .about-img {
+    flex: 0 0 200px;
+  }
+  .about-img img {
+    width: 200px;
+    height: 200px;
+  }
+
+  /* Contacto */
+  .section-contact {
+    padding: 5rem 2rem 3rem;
+  }
+  .contact-alternative {
+    margin-top: 4rem;
+  }
 }
-button {
+
+/* ---------- DESKTOP (1025px en adelante) ---------- */
+@media (min-width: 1025px) {
+  /* Hero */
+  .section-hero h1 {
+    font-size: 2.5rem;
+  }
+  .section-hero p {
+    font-size: 1.05rem;
+  }
+
+  /* Proyectos */
+  .projects-grid {
+    flex-direction: column;
+  }
+  .project-card {
+    flex-direction: row;
+  }
+  .project-img {
+    flex: 0 0 40%;
+    min-height: 250px;
+  }
+  .project-info {
+    flex: 1;
+    padding: 1.5rem;
+  }
+
+  /* Sobre mí */
+  .about-content {
+    flex-direction: row;
+    gap: 2rem;
+  }
+  .about-img {
+    flex: 0 0 220px;
+  }
+  .about-img img {
+    width: 220px;
+    height: 220px;
+  }
+
+  /* Contacto */
+  .section-contact {
+    padding: 6rem 2rem 4rem;
+  }
+  .contact-alternative {
+    margin-top: 5rem;
+  }
+}
+
+/* ---------- AJUSTES GENERALES ---------- */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+input, textarea, button {
   font-family: inherit;
 }
 
-/* Fin */
+.section-projects .projects-grid, 
+.about-content {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+

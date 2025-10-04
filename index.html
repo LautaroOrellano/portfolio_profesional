@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -7,47 +8,51 @@
     <!-- Acá los estilos CSS -->
     <link rel="stylesheet" href="css/index.css" />
   </head>
+
   <body class="dark-theme">
     <!-- Header fijo con menú -->
     <header id="header">
       <nav class="navbar">
+        <!-- Logo siempre visible -->
         <div class="logo">Lautaro O.</div>
-        <ul class="nav-links">
+
+        <!-- Botón hamburguesa visible solo móvil -->
+        <button id="menu-toggle" aria-label="Abrir menú">&#9776;</button>
+
+        <!-- Menú -->
+        <ul class="nav-links" id="nav-links">
           <li><a href="#hero">Inicio</a></li>
           <li><a href="#projects">Proyectos</a></li>
           <li><a href="#about">Sobre mí</a></li>
           <li><a href="#contact">Contacto</a></li>
         </ul>
-        <!-- Botón modo oscuro -->
-        <button id="theme-toggle" class="btn-primary">🌙</button>
+
+        <button id="theme-toggle" class="btn-primary"></button>
+  
       </nav>
     </header>
 
     <!-- Hero / Sección de bienvenida -->
     <section id="hero" class="section-hero">
       <div class="hero-content">
-        <h1>Hola, soy Lautaro Orellano</h1>
-        <p>
-          Desarrollador Full-Stack y fundador de ImadWi. <br />
-          Transformo ideas en soluciones digitales escalables, seguras y con
-          foco en resultados medibles para empresas y usuarios.
-        </p>
+        <h1>Desarrollo soluciones web escalables y seguras <br /> para potenciar tu negocio</h1>
+        <p>Soy Lautaro Orellano, Full-Stack Developer y fundador de <strong>ImadWi</strong></p> 
         <a href="#projects" class="btn-primary">Ver mis proyectos</a>
       </div>
     </section>
 
     <!-- Sección Proyectos Destacados -->
     <section id="projects" class="section-projects">
-      <h2>Proyectos</h2>
+      <h2>Proyectos Recientes</h2>
       <div class="projects-grid">
         <div class="project-card">
           <div class="project-img">
-            <img src="images/imadwi.png" alt="Captura de proyecto ImadWi" />
+            <img loading="lazy" src="images/imadwi.png" alt="Captura de proyecto ImadWi" />
           </div>
           <div class="project-info">
             <h3>ImadWI</h3>
             <p>
-              ImadWi: Landing page desarrollada para ImadWi, consultoría IT
+              Landing page desarrollada para consultoría IT
               especializada en soluciones digitales personalizadas. Diseñada
               para potenciar la presencia online de la empresa, presentar
               servicios y proyectos de manera clara y profesional, y facilitar
@@ -58,14 +63,14 @@
             <p class="tech">Tecnologías: JavaScript, HTML5, Tailwind CSS4.</p>
             <div class="project-links">
               <a href="https://imadwi.vercel.app/" target="_blank">Sitio web</a>
-              <a href="github_proyecto1" target="_blank">Código</a>
+              <a target="_blank">Código cerrado</a>
             </div>
           </div>
         </div>
 
         <div class="project-card">
           <div class="project-img">
-            <img src="images/keylab.png" alt="Captura de proyecto KeyLab" />
+            <img loading="lazy" src="images/keylab.png" alt="Captura de proyecto KeyLab" />
           </div>
           <div class="project-info">
             <h3>KeyLab</h3>
@@ -98,6 +103,7 @@
         <div class="project-card">
           <div class="project-img">
             <img
+              loading="lazy"
               src="images/legitproof.png"
               alt="Captura de proyecto LegitProof"
             />
@@ -118,10 +124,10 @@
             </p>
             <p class="tech">Tecnologías: Java, Spring Boot, Python, MySQL.</p>
             <div class="project-links">
-              <a href="https://lautaro-orellano.vercel.app/" target="_blank"
-                >Sitio web</a
+              <a target="_blank"
+                >Sitio web aun no dispobible</a
               >
-              <a href="github_proyecto1" target="_blank">Código</a>
+              <a target="_blank">Código cerrado</a>
             </div>
           </div>
         </div>
@@ -129,6 +135,7 @@
         <div class="project-card">
           <div class="project-img">
             <img
+              loading="lazy"
               src="images/atlasviajes.png"
               alt="Captura de proyecto AtlasViajes"
             />
@@ -150,14 +157,14 @@
               <a href="https://atlasviajes.vercel.app" target="_blank"
                 >Sitio web</a
               >
-              <a href="github_proyecto1" target="_blank">Código</a>
+              <a target="_blank">Código cerrado</a>
             </div>
           </div>
         </div>
 
         <div class="project-card">
           <div class="project-img">
-            <img src="images/fika.png" alt="Captura de proyecto Fika" />
+            <img loading="lazy" src="images/fika.png" alt="Captura de proyecto Fika" />
           </div>
           <div class="project-info">
             <h3>Fika</h3>
@@ -177,7 +184,7 @@
               <a href="https://fika-pastas-caseras.vercel.app" target="_blank"
                 >Sitio web</a
               >
-              <a href="github_proyecto1" target="_blank">Código</a>
+              <a target="_blank">Código cerrado</a>
             </div>
           </div>
         </div>
@@ -185,6 +192,7 @@
         <div class="project-card">
           <div class="project-img">
             <img
+              loading="lazy"
               src="images/lautaroO.png"
               alt="Captura de proyecto Portfolio"
             />
@@ -205,7 +213,7 @@
               <a href="https://lautaro-orellano.vercel.app/" target="_blank"
                 >Sitio web</a
               >
-              <a href="github_proyecto1" target="_blank">Código</a>
+              <a target="_blank">Código cerrado</a>
             </div>
           </div>
         </div>
@@ -218,11 +226,26 @@
       <div class="about-content">
         <div class="about-text">
           <p>
-            Soy Lautaro Orellano, fundador de ImadWi, consultoría IT con más de
-            500 proyectos ejecutados. Ayudo a empresas a transformar sus
+            Soy Lautaro Orellano, fundé ImadWi, consultoría IT con más de
+            100 proyectos ejecutados. Ayudo a empresas a transformar sus
             procesos y presencia digital mediante soluciones web y sistemas
             escalables, confiables y centrados en la experiencia del usuario.
           </p>
+
+          <!-- Párrafos adicionales -->
+          <p>
+            Mi objetivo es que cada proyecto sea fácil de usar, seguro y efectivo, 
+            sin que tengas que preocuparte por la parte técnica. 
+            Busco soluciones que realmente ayuden a tu negocio a crecer y a conectar mejor con tus clientes.
+          </p>
+
+          <p>
+            Trabajo de forma profesional y transparente, cuidando cada detalle 
+            y asegurándome de que los resultados sean tangibles. 
+            Si querés potenciar tu presencia digital o mejorar tu negocio online, 
+            no dudes en contactarme.
+          </p>
+
           <div class="about-socials">
             <a href="https://instagram.com/LautaaOrellano" target="_blank"
               ><img src="images/iconos/instagram.svg" alt="icono instagram"
@@ -239,7 +262,7 @@
         </div>
 
         <div class="about-img">
-          <img src="/images/fotomia.JPG" alt="Foto de Lautaro" />
+          <img loading="lazy" src="/images/fotomia.JPG" alt="Foto de Lautaro" />
         </div>
       </div>
     </section>
@@ -266,7 +289,7 @@
 
         <div class="contact-alternative">
           <p>O si no, también podés enviarme un mensaje por WhatsApp:</p>
-          <a href="https://wa.me/5491123456789?text=Hola,%20vi%20tu%20portfolio%20y%20quiero%20consultarte%20sobre%20un%20proyecto" target="_blank" class="btn-wapp">
+          <a href="https://wa.me/5492236052979?text=Hola,%20vi%20tu%20portfolio%20y%20quiero%20consultarte%20sobre%20un%20proyecto" target="_blank" class="btn-wapp">
             <img src="images/iconos/whatsapp.svg" alt="WhatsApp">
             Enviar por WhatsApp
           </a>
@@ -279,6 +302,14 @@
       <p>© 2025 Lautaro Orellano. Todos los derechos reservados.</p>
     </footer>
 
+   <!-- Botón flotante de WhatsApp avanzado -->
+    <a href="https://wa.me/5492236052979?text=Hola,%20vi%20tu%20portfolio%20y%20quiero%20consultarte%20sobre%20un%20proyecto" 
+      target="_blank" 
+      id="whatsapp-float" 
+      title="Escribime por WhatsApp">
+      <img src="images/iconos/whatsapp.svg" alt="WhatsApp">
+    </a>
+    
     <!-- JS para efectos leves -->
     <script src="js/app.js"></script>
   </body>

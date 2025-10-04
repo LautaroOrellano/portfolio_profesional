@@ -1,3 +1,11 @@
+
+const toggleBtn = document.getElementById("menu-toggle");
+const navLinks = document.getElementById("nav-links");
+
+toggleBtn.addEventListener("click", () => {
+  navLinks.classList.toggle("active");
+});
+
 document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
   anchor.addEventListener("click", function (e) {
     e.preventDefault();
@@ -43,3 +51,17 @@ document.addEventListener("DOMContentLoaded", () => {
       : moon;
   });
 });
+
+// Mostrar botón WhatsApp cuando el scroll baja más de 200px
+window.addEventListener("scroll", () => {
+  const btn = document.getElementById("whatsapp-float");
+  if(window.scrollY > 200){
+    btn.style.opacity = "1";
+    btn.style.pointerEvents = "auto";
+  } else {
+    btn.style.opacity = "0";
+    btn.style.pointerEvents = "none";
+  }
+});
+
+
