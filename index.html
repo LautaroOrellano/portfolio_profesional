@@ -207,7 +207,6 @@
               performance y animaciones interactivas, demostrando versatilidad y
               dominio técnico en entornos innovadores.
             </p>
-            <p>Tiempo de elaboración: 10 días</p>
             <p class="tech">Tecnologías: TypeScript, Next.js, Tailwind CSS.</p>
             <div class="project-links">
               <a href="https://lautaro-orellano.vercel.app/" target="_blank"
@@ -271,20 +270,12 @@
     <section id="contact" class="section-contact">
       <h2>Contacto</h2>
       <div class="contact-content">
-        <form
-          action="mailto:tuemail@ejemplo.com"
-          method="post"
-          enctype="text/plain"
-        >
+        <form id="contact-form">
           <input type="text" name="name" placeholder="Nombre" required />
           <input type="email" name="email" placeholder="Correo" required />
-          <textarea
-            name="message"
-            rows="5"
-            placeholder="Mensaje"
-            required
-          ></textarea>
+          <textarea name="message" rows="5" placeholder="Mensaje" required></textarea>
           <button type="submit" class="btn-primary">Enviar</button>
+          <p id="form-status" style="margin-top:10px; font-weight:bold;"></p>
         </form>
 
         <div class="contact-alternative">
@@ -312,5 +303,6 @@
     
     <!-- JS para efectos leves -->
     <script src="js/app.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
   </body>
 </html>

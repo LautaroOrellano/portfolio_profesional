@@ -64,4 +64,43 @@ window.addEventListener("scroll", () => {
   }
 });
 
+// ==================== FORMULARIO DE CONTACTO ====================
+document.addEventListener("DOMContentLoaded", () => {
+  // Inicializar EmailJS con tu clave pública
+  emailjs.init("qLrljyhonXlsIP_Nt");
+
+  const contactForm = document.getElementById("contact-form");
+  const status = document.getElementById("form-status");
+
+  if (contactForm) {
+    contactForm.addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      status.textContent = "Enviando mensaje...";
+      status.style.color = "white";
+
+      const templateParams = {
+        name: contactForm.name.value,
+        email: contactForm.email.value,
+        message: contactForm.message.value,
+        time: new Date().toLocaleString(),
+      };
+
+      emailjs
+        .send("service_ecdza3i", "template_feng11h", templateParams)
+        .then(() => {
+          status.style.color = "limegreen";
+          status.textContent = "✅ Mensaje enviado con éxito";
+          contactForm.reset();
+        })
+        .catch((error) => {
+          console.error("Error al enviar el email:", error);
+          status.style.color = "red";
+          status.textContent =
+            "❌ Hubo un problema al enviar el mensaje. Intentalo de nuevo.";
+        });
+    });
+  }
+});
+
 

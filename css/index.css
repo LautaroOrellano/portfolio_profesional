@@ -3,6 +3,7 @@
   --bg-color: #fdfdfd;
   --text-color: #222;
   --card-bg: #fff;
+  --tertiary-text: #2fc550;
   --secondary-text: #555;
   --primary-color: #1e097a;
   --footer-bg: #222;
@@ -250,7 +251,7 @@ body.dark-theme #theme-toggle img {
 .project-info .tech {
   font-style: italic;
   font-size: 0.85rem;
-  color: var(--secondary-text);
+  color: var(--tertiary-text);
 }
 
 .project-links a {
